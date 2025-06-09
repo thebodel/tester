@@ -1,6 +1,5 @@
 # 📦 Installation & Setup
 
-Ready to test your C programs with Python automation? Follow these steps to install and run this project on your local machine:
 
 ---
 
