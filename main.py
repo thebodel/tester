@@ -3,15 +3,21 @@ import subprocess
 import glob
 import re
 
-def sort_key(path):
+def sort_key(path,mode):
     scenar_match = re.search(r'scenar_(\d+)', path)
     scenar_num = int(scenar_match.group(1)) if scenar_match else 9999
-    input_match = re.search(r'input(\d+)', path)
+    input_match = re.search(fr'{mode}(\d+)', path)
     input_num = int(input_match.group(1)) if input_match else 9999
     return (scenar_num, input_num)
-input_files = sorted(glob.glob('z1_testovacie_priklady/**/input*.txt', recursive=True), key=sort_key)
+input_files = sorted(
+    glob.glob('z1_testovacie_priklady/**/input*.txt', recursive=True),
+    key=lambda path: sort_key(path, 'input')
+)
+output_files = sorted(
+    glob.glob('z1_testovacie_priklady/**/output*.txt', recursive=True),
+    key=lambda path: sort_key(path, 'output')
+)
 input = []
-output_files = sorted(glob.glob('z1_testovacie_priklady/**/output*.txt', recursive=True), key=sort_key)
 output_right = []
 for i in range(len(input_files)):
     with open(input_files[i], 'r', encoding='utf-8') as f:
