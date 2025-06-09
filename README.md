@@ -44,5 +44,5 @@ test_cases/scenar_3/output1.txt
 ## 4. Run the Project
 
 ```bash
-make rub
+make run
 ```
