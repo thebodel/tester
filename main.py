@@ -10,11 +10,11 @@ def sort_key(path,mode):
     input_num = int(input_match.group(1)) if input_match else 9999
     return (scenar_num, input_num)
 input_files = sorted(
-    glob.glob('z1_testovacie_priklady/**/input*.txt', recursive=True),
+    glob.glob('test_cases/**/input*.txt', recursive=True),
     key=lambda path: sort_key(path, 'input')
 )
 output_files = sorted(
-    glob.glob('z1_testovacie_priklady/**/output*.txt', recursive=True),
+    glob.glob('test_cases/**/output*.txt', recursive=True),
     key=lambda path: sort_key(path, 'output')
 )
 input = []
@@ -29,15 +29,16 @@ for i in range(len(input_files)):
 out=[]
 def comapre(out,out_right,test):
     if out.strip() == out_right.strip():
-        print(f"{test} ✅passed")
+        print(f"{test} ✅Passed")
     else:
+        print(f"{test} ❌Not passed")
         diff = difflib.ndiff(out_right, out)
         print(''.join(diff))
 
 def compile_and_run(input_f):
     c_file='main.c'
     exe_name = c_file.replace('.c', '')
-    subprocess.run(['gcc', c_file, '-o', exe_name], check=True)
+    #subprocess.run(['gcc', c_file, '-o', exe_name], check=True)
     result = subprocess.run(['./main'], input=input_f.encode(), capture_output=True, check=True)
     out.append(result.stdout.decode())
 
