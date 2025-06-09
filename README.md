@@ -7,8 +7,8 @@ Ready to test your C programs with Python automation? Follow these steps to inst
 ## 1. Clone the Repository
 
 ```bash
-git clone https://github.com/ТВОЙ_НИК/ИМЯ_РЕПО.git
-cd ИМЯ_РЕПО
+git clone https://github.com/thebodel/tester.git
+cd tester
 ```
 
 ---
@@ -29,14 +29,14 @@ Place your C source file named `main.c` in the project root.
 Test case files should be placed like this:
 
 ```
-z1_testovacie_priklady/scenar_X/inputY.txt
-z1_testovacie_priklady/scenar_X/outputY.txt
+test_cases/scenar_X/inputY.txt
+test_cases/scenar_X/outputY.txt
 ```
 
 ### Example:
 ```
-z1_testovacie_priklady/scenar_3/input1.txt
-z1_testovacie_priklady/scenar_3/output1.txt
+test_cases/scenar_3/input1.txt
+test_cases/scenar_3/output1.txt
 ```
 
 ---
@@ -44,13 +44,5 @@ z1_testovacie_priklady/scenar_3/output1.txt
 ## 4. Run the Project
 
 ```bash
-python3 main.py
+make rub
 ```
-
-This script will:
-
-- ✅ Compile your `main.c`
-- 📥 Feed all inputs
-- 📤 Compare the outputs with expected results
-- 🟢 Print **passed** or 🔴 **failed**
-
