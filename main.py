@@ -29,7 +29,7 @@ for i in range(len(input_files)):
 out=[]
 def comapre(out,out_right,test):
     if out.strip() == out_right.strip():
-        print(f"{test} passed")
+        print(f"{test} ✅passed")
     else:
         diff = difflib.ndiff(out_right, out)
         print(''.join(diff))
